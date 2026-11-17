@@ -1,0 +1,110 @@
++ cd /home/wbic16/phccbox-work/src
++ tar xf /home/wbic16/phccbox-work/dl/dash-0.5.12.tar.gz
++ tar xf /home/wbic16/phccbox-work/dl/gzip-1.14.tar.xz
++ tar xf /home/wbic16/phccbox-work/dl/bzip2-1.0.8.tar.gz
++ guard
++ local t
+++ sensors
+++ awk '/Tctl/{gsub(/\+|°C/,"",$2); print $2; exit}'
++ t=54.6
++ '[' -n 54.6 ']'
++ awk 'BEGIN{exit !(54.6>=75)}'
++ cd dash-0.5.12
++ ./configure 'CC=/home/wbic16/phcc-gate-run/phcc/tcc -B/home/wbic16/phcc-gate-run/phcc'
++ make -j8
++ echo dash_rc=0
+dash_rc=0
++ find . -name dash -type f -exec ls -la '{}' ';'
+-rwxrwxr-x 1 wbic16 wbic16 1111011 Nov  7 20:17 ./src/dash
++ guard
++ local t
+++ sensors
+++ awk '/Tctl/{gsub(/\+|°C/,"",$2); print $2; exit}'
++ t=57.0
++ '[' -n 57.0 ']'
++ awk 'BEGIN{exit !(57.0>=75)}'
++ cd gzip-1.14
++ ./configure 'CC=/home/wbic16/phcc-gate-run/phcc/tcc -B/home/wbic16/phcc-gate-run/phcc'
++ make -j8
++ echo gzip_rc=0
+gzip_rc=0
++ ls -la gzip
+-rwxrwxr-x 1 wbic16 wbic16 668793 Nov  7 20:17 gzip
++ tail -5 make.log
+Making all in tests
+make[2]: Entering directory '/home/wbic16/phccbox-work/src/gzip-1.14/tests'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/wbic16/phccbox-work/src/gzip-1.14/tests'
+make[1]: Leaving directory '/home/wbic16/phccbox-work/src/gzip-1.14'
++ guard
++ local t
+++ sensors
+++ awk '/Tctl/{gsub(/\+|°C/,"",$2); print $2; exit}'
++ t=79.4
++ '[' -n 79.4 ']'
++ awk 'BEGIN{exit !(79.4>=75)}'
++ echo '[thermal hold 79.4]'
+[thermal hold 79.4]
++ sleep 30
+++ sensors
+++ awk '/Tctl/{gsub(/\+|°C/,"",$2); print $2; exit}'
++ t=48.9
++ '[' -n 48.9 ']'
++ awk 'BEGIN{exit !(48.9>=75)}'
++ cd bzip2-1.0.8
++ make -j8 'CC=/home/wbic16/phcc-gate-run/phcc/tcc -B/home/wbic16/phcc-gate-run/phcc'
++ echo bzip2_rc=0
+bzip2_rc=0
++ ls -la bzip2
+-rwxrwxr-x 1 wbic16 wbic16 392838 Nov  7 20:17 bzip2
++ tail -5 make.log
+and HTML form (manual.html).
+
+You can also do "bzip2 --help" to see some helpful information. 
+"bzip2 -L" displays the software license.
+
++ guard
++ local t
+++ sensors
+++ awk '/Tctl/{gsub(/\+|°C/,"",$2); print $2; exit}'
++ t=51.5
++ '[' -n 51.5 ']'
++ awk 'BEGIN{exit !(51.5>=75)}'
++ tar xf /home/wbic16/phcc-bench-run/tarballs/coreutils-9.12.tar.xz
++ cd coreutils-9.12
++ ./configure 'CC=/home/wbic16/phcc-gate-run/phcc/tcc -B/home/wbic16/phcc-gate-run/phcc' --enable-single-binary=symlinks
++ echo cu_conf_rc=0
+cu_conf_rc=0
++ grep -m2 -i single conf.log
+checking for sys/single_threaded.h... yes
++ make -j8
++ echo cu_make_rc=2
+cu_make_rc=2
++ grep -m4 -n error make.log
+8:  GEN      lib/error.h
+106:lib/nanosleep.c:60: error: constant exceeds 32 bit
++ for b in $GATE/src/sed/sed/sed $GATE/src/grep/src/grep $GATE/src/gawk/gawk $GATE/src/vim/src/vim dash-0.5.12/dash gzip-1.14/gzip bzip2-1.0.8/bzip2
++ ls -la /home/wbic16/phcc-gate-run/src/sed/sed/sed
+-rwxrwxr-x 1 wbic16 wbic16 1349980 Nov  7 18:24 /home/wbic16/phcc-gate-run/src/sed/sed/sed
++ for b in $GATE/src/sed/sed/sed $GATE/src/grep/src/grep $GATE/src/gawk/gawk $GATE/src/vim/src/vim dash-0.5.12/dash gzip-1.14/gzip bzip2-1.0.8/bzip2
++ ls -la /home/wbic16/phcc-gate-run/src/grep/src/grep
+-rwxrwxr-x 1 wbic16 wbic16 1464997 Nov  7 18:24 /home/wbic16/phcc-gate-run/src/grep/src/grep
++ for b in $GATE/src/sed/sed/sed $GATE/src/grep/src/grep $GATE/src/gawk/gawk $GATE/src/vim/src/vim dash-0.5.12/dash gzip-1.14/gzip bzip2-1.0.8/bzip2
++ ls -la /home/wbic16/phcc-gate-run/src/gawk/gawk
+-rwxrwxr-x 1 wbic16 wbic16 4007366 Nov  7 18:25 /home/wbic16/phcc-gate-run/src/gawk/gawk
++ for b in $GATE/src/sed/sed/sed $GATE/src/grep/src/grep $GATE/src/gawk/gawk $GATE/src/vim/src/vim dash-0.5.12/dash gzip-1.14/gzip bzip2-1.0.8/bzip2
++ ls -la /home/wbic16/phcc-gate-run/src/vim/src/vim
+-rwxrwxr-x 1 wbic16 wbic16 5636324 Nov  7 18:25 /home/wbic16/phcc-gate-run/src/vim/src/vim
++ for b in $GATE/src/sed/sed/sed $GATE/src/grep/src/grep $GATE/src/gawk/gawk $GATE/src/vim/src/vim dash-0.5.12/dash gzip-1.14/gzip bzip2-1.0.8/bzip2
++ ls -la dash-0.5.12/dash
++ for b in $GATE/src/sed/sed/sed $GATE/src/grep/src/grep $GATE/src/gawk/gawk $GATE/src/vim/src/vim dash-0.5.12/dash gzip-1.14/gzip bzip2-1.0.8/bzip2
++ ls -la gzip-1.14/gzip
+-rwxrwxr-x 1 wbic16 wbic16 668793 Nov  7 20:17 gzip-1.14/gzip
++ for b in $GATE/src/sed/sed/sed $GATE/src/grep/src/grep $GATE/src/gawk/gawk $GATE/src/vim/src/vim dash-0.5.12/dash gzip-1.14/gzip bzip2-1.0.8/bzip2
++ ls -la bzip2-1.0.8/bzip2
+-rwxrwxr-x 1 wbic16 wbic16 392838 Nov  7 20:17 bzip2-1.0.8/bzip2
++ sensors
++ grep -i tctl
+Tctl:         +52.8°C  
++ echo PHASE2-DONE
+PHASE2-DONE

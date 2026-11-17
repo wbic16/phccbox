@@ -1,0 +1,80 @@
+PASS sed/subst
+PASS sed/n2p
+PASS sed/delete
+PASS sed/multi-e
+PASS grep/count
+PASS grep/basic
+PASS grep/invert
+PASS grep/ere-flag
+PASS egrep/plus
+PASS egrep/alt
+PASS fgrep/litdot
+PASS fgrep/plain
+PASS awk/field
+PASS awk/sum
+PASS awk/nf
+PASS awk/count
+PASS sh/arith
+PASS sh/loop
+PASS sh/stdin
+FAIL sh/name0 rc(box=0 ref=0)
+1c1
+< name=/home/wbic16/phccbox-work/boxlinks/sh
+---
+> name=/home/wbic16/phccbox-work/src/dash-0.5.12/src/dash
+PASS ash/basic
+PASS bzip2/c
+PASS bzip2/c9
+PASS bunzip2/c
+PASS bzcat/plain
+PASS gzip/nc
+PASS gzip/n1c
+PASS gunzip/c
+PASS zcat/plain
+PASS true/rc
+PASS false/rc
+PASS yes/head
+PASS yes/args
+PASS dispatch/form
+PASS dispatch/unknown
+PASS vi/ex-subst
+=== PER-APPLET ===
+ash: 1/1
+awk: 4/4
+bunzip2: 1/1
+bzcat: 1/1
+bzip2: 2/2
+dispatch: 2/2
+egrep: 2/2
+false: 1/1
+fgrep: 2/2
+grep: 4/4
+gunzip: 1/1
+gzip: 2/2
+sed: 4/4
+sh: 3/4
+true: 1/1
+vi: 1/1
+yes: 2/2
+zcat: 1/1
+=== TOTAL pass=35 fail=1 ===
+phccbox: 16 applet links installed in /home/wbic16/phccbox-work/farm (0 already present)
+/home/wbic16/phccbox-work/farm/sed
+/home/wbic16/phccbox-work/farm/awk
+hello world
+FARM bar foo
+last line
+1: a:1
+2: b:2
+farm-true-ok
+=== SIZES ===
+/home/wbic16/phccbox-work/phccbox 2498796
+/home/wbic16/phccbox-work/phccbox-vi 7962860
+/home/wbic16/phccbox-work/busybox-1.37.0/busybox 1063528
+/usr/bin/busybox 2124608
+standalone sum (sed grep gawk dash gzip bzip2):
+8994985
+standalone sum + vim:
+14631309
+Tctl:         +46.6°C  
+PHASE4-DONE
