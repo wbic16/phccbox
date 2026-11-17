@@ -1,0 +1,91 @@
++ cd /home/wbic16/phccbox-work
++ tar xf dl/busybox-1.37.0.tar.bz2
++ cd busybox-1.37.0
++ make defconfig
++ grep -c '^CONFIG_' .config
+930
++ make -j8
++ ls -la busybox
+ls: cannot access 'busybox': No such file or directory
++ ./busybox --list
+/home/wbic16/phccbox-work/phase1_inventory.sh: line 14: ./busybox: No such file or directory
++ wc -l /home/wbic16/phccbox-work/out/busybox-defconfig-applets.txt
+0 /home/wbic16/phccbox-work/out/busybox-defconfig-applets.txt
++ /usr/bin/busybox --list
++ wc -l /home/wbic16/phccbox-work/out/busybox-system-applets.txt
+272 /home/wbic16/phccbox-work/out/busybox-system-applets.txt
++ ls -la /usr/bin/busybox
+-rwxr-xr-x 1 root root 2124608 Feb  9  2026 /usr/bin/busybox
++ G=/home/wbic16/phcc-gate-run/src/grep/src/grep
++ mkdir -p /home/wbic16/phccbox-work/argv0test
++ cd /home/wbic16/phccbox-work/argv0test
++ cp /home/wbic16/phcc-gate-run/src/grep/src/grep ./egrep
++ cp /home/wbic16/phcc-gate-run/src/grep/src/grep ./fgrep
++ printf 'a+b\naab\n'
++ echo egrep-as-name:
+egrep-as-name:
++ ./egrep a+b in.txt
+a+b
++ echo fgrep-as-name:
+fgrep-as-name:
++ ./fgrep a+b in.txt
+a+b
++ echo grep-plain:
+grep-plain:
++ /home/wbic16/phcc-gate-run/src/grep/src/grep a+b in.txt
+a+b
++ for b in $HOME/phcc-gate-run/src/sed/sed/sed $HOME/phcc-gate-run/src/grep/src/grep $HOME/phcc-gate-run/src/gawk/gawk $HOME/phcc-gate-run/src/vim/src/vim
++ echo '== /home/wbic16/phcc-gate-run/src/sed/sed/sed'
+== /home/wbic16/phcc-gate-run/src/sed/sed/sed
++ ldd /home/wbic16/phcc-gate-run/src/sed/sed/sed
++ head -8
+	linux-vdso.so.1 (0x00007ffcb03b0000)
+	libselinux.so.1 => /lib/x86_64-linux-gnu/libselinux.so.1 (0x00007ac5943b3000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007ac594000000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007ac5943f1000)
+	libpcre2-8.so.0 => /lib/x86_64-linux-gnu/libpcre2-8.so.0 (0x00007ac594319000)
++ for b in $HOME/phcc-gate-run/src/sed/sed/sed $HOME/phcc-gate-run/src/grep/src/grep $HOME/phcc-gate-run/src/gawk/gawk $HOME/phcc-gate-run/src/vim/src/vim
++ echo '== /home/wbic16/phcc-gate-run/src/grep/src/grep'
+== /home/wbic16/phcc-gate-run/src/grep/src/grep
++ ldd /home/wbic16/phcc-gate-run/src/grep/src/grep
++ head -8
+	linux-vdso.so.1 (0x00007ffd74511000)
+	libpcre2-8.so.0 => /lib/x86_64-linux-gnu/libpcre2-8.so.0 (0x000073c8b1c01000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000073c8b1800000)
+	/lib64/ld-linux-x86-64.so.2 (0x000073c8b1cac000)
++ for b in $HOME/phcc-gate-run/src/sed/sed/sed $HOME/phcc-gate-run/src/grep/src/grep $HOME/phcc-gate-run/src/gawk/gawk $HOME/phcc-gate-run/src/vim/src/vim
++ echo '== /home/wbic16/phcc-gate-run/src/gawk/gawk'
+== /home/wbic16/phcc-gate-run/src/gawk/gawk
++ ldd /home/wbic16/phcc-gate-run/src/gawk/gawk
++ head -8
+	linux-vdso.so.1 (0x00007fff4fb81000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x000077adc3538000)
+	libmvec.so.1 => /lib/x86_64-linux-gnu/libmvec.so.1 (0x000077adc343f000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000077adc3200000)
+	/lib64/ld-linux-x86-64.so.2 (0x000077adc3632000)
++ for b in $HOME/phcc-gate-run/src/sed/sed/sed $HOME/phcc-gate-run/src/grep/src/grep $HOME/phcc-gate-run/src/gawk/gawk $HOME/phcc-gate-run/src/vim/src/vim
++ echo '== /home/wbic16/phcc-gate-run/src/vim/src/vim'
+== /home/wbic16/phcc-gate-run/src/vim/src/vim
++ ldd /home/wbic16/phcc-gate-run/src/vim/src/vim
++ head -8
+	linux-vdso.so.1 (0x00007fffc1dfe000)
+	libwayland-client.so.0 => /lib/x86_64-linux-gnu/libwayland-client.so.0 (0x00007dc68e66f000)
+	libcairo.so.2 => /lib/x86_64-linux-gnu/libcairo.so.2 (0x00007dc68e52b000)
+	libz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007dc68e50f000)
+	libpangocairo-1.0.so.0 => /lib/x86_64-linux-gnu/libpangocairo-1.0.so.0 (0x00007dc68e4fe000)
+	libpango-1.0.so.0 => /lib/x86_64-linux-gnu/libpango-1.0.so.0 (0x00007dc68e493000)
+	libgobject-2.0.so.0 => /lib/x86_64-linux-gnu/libgobject-2.0.so.0 (0x00007dc68e42e000)
+	libglib-2.0.so.0 => /lib/x86_64-linux-gnu/libglib-2.0.so.0 (0x00007dc68e2e5000)
++ CU=/home/wbic16/phcc-gate-run/src/coreutils
++ grep -m1 AC_INIT /home/wbic16/phcc-gate-run/src/coreutils/configure.ac
+AC_INIT([GNU coreutils],
++ xargs -n1 basename
++ sed 's/\.c$//'
++ ls /home/wbic16/phcc-gate-run/src/coreutils/src/basename.c /home/wbic16/phcc-gate-run/src/coreutils/src/basenc.c /home/wbic16/phcc-gate-run/src/coreutils/src/cat.c /home/wbic16/phcc-gate-run/src/coreutils/src/chcon.c /home/wbic16/phcc-gate-run/src/coreutils/src/chmod.c /home/wbic16/phcc-gate-run/src/coreutils/src/chown.c /home/wbic16/phcc-gate-run/src/coreutils/src/chown-chgrp.c /home/wbic16/phcc-gate-run/src/coreutils/src/chown-chown.c /home/wbic16/phcc-gate-run/src/coreutils/src/chown-core.c /home/wbic16/phcc-gate-run/src/coreutils/src/chroot.c /home/wbic16/phcc-gate-run/src/coreutils/src/cksum_avx2.c /home/wbic16/phcc-gate-run/src/coreutils/src/cksum_avx512.c /home/wbic16/phcc-gate-run/src/coreutils/src/cksum.c /home/wbic16/phcc-gate-run/src/coreutils/src/cksum_crc.c /home/wbic16/phcc-gate-run/src/coreutils/src/cksum_pclmul.c /home/wbic16/phcc-gate-run/src/coreutils/src/cksum_vmull.c /home/wbic16/phcc-gate-run/src/coreutils/src/comm.c /home/wbic16/phcc-gate-run/src/coreutils/src/copy.c /home/wbic16/phcc-gate-run/src/coreutils/src/copy-file-data.c /home/wbic16/phcc-gate-run/src/coreutils/src/coreutils-arch.c /home/wbic16/phcc-gate-run/src/coreutils/src/coreutils.c /home/wbic16/phcc-gate-run/src/coreutils/src/coreutils-chgrp.c /home/wbic16/phcc-gate-run/src/coreutils/src/coreutils-dir.c /home/wbic16/phcc-gate-run/src/coreutils/src/coreutils-false.c /home/wbic16/phcc-gate-run/src/coreutils/src/coreutils-lbracket.c /home/wbic16/phcc-gate-run/src/coreutils/src/coreutils-md5sum.c /home/wbic16/phcc-gate-run/src/coreutils/src/coreutils-sha1sum.c /home/wbic16/phcc-gate-run/src/coreutils/src/coreutils-sha224sum.c /home/wbic16/phcc-gate-run/src/coreutils/src/coreutils-sha256sum.c /home/wbic16/phcc-gate-run/src/coreutils/src/coreutils-sha384sum.c /home/wbic16/phcc-gate-run/src/coreutils/src/coreutils-sha512sum.c /home/wbic16/phcc-gate-run/src/coreutils/src/coreutils-vdir.c /home/wbic16/phcc-gate-run/src/coreutils/src/cp.c /home/wbic16/phcc-gate-run/src/coreutils/src/cp-hash.c /home/wbic16/phcc-gate-run/src/coreutils/src/crctab.c /home/wbic16/phcc-gate-run/src/coreutils/src/csplit.c /home/wbic16/phcc-gate-run/src/coreutils/src/cut.c /home/wbic16/phcc-gate-run/src/coreutils/src/date.c /home/wbic16/phcc-gate-run/src/coreutils/src/dd.c /home/wbic16/phcc-gate-run/src/coreutils/src/df.c /home/wbic16/phcc-gate-run/src/coreutils/src/dircolors.c /home/wbic16/phcc-gate-run/src/coreutils/src/dirname.c /home/wbic16/phcc-gate-run/src/coreutils/src/du.c /home/wbic16/phcc-gate-run/src/coreutils/src/echo.c /home/wbic16/phcc-gate-run/src/coreutils/src/env.c /home/wbic16/phcc-gate-run/src/coreutils/src/expand.c /home/wbic16/phcc-gate-run/src/coreutils/src/expand-common.c /home/wbic16/phcc-gate-run/src/coreutils/src/expr.c /home/wbic16/phcc-gate-run/src/coreutils/src/factor.c /home/wbic16/phcc-gate-run/src/coreutils/src/find-mount-point.c /home/wbic16/phcc-gate-run/src/coreutils/src/fmt.c /home/wbic16/phcc-gate-run/src/coreutils/src/fold.c /home/wbic16/phcc-gate-run/src/coreutils/src/force-link.c /home/wbic16/phcc-gate-run/src/coreutils/src/getlimits.c /home/wbic16/phcc-gate-run/src/coreutils/src/group-list.c /home/wbic16/phcc-gate-run/src/coreutils/src/groups.c /home/wbic16/phcc-gate-run/src/coreutils/src/head.c /home/wbic16/phcc-gate-run/src/coreutils/src/hostid.c /home/wbic16/phcc-gate-run/src/coreutils/src/hostname.c /home/wbic16/phcc-gate-run/src/coreutils/src/id.c /home/wbic16/phcc-gate-run/src/coreutils/src/install.c /home/wbic16/phcc-gate-run/src/coreutils/src/iopoll.c /home/wbic16/phcc-gate-run/src/coreutils/src/join.c /home/wbic16/phcc-gate-run/src/coreutils/src/kill.c /home/wbic16/phcc-gate-run/src/coreutils/src/libstdbuf.c /home/wbic16/phcc-gate-run/src/coreutils/src/link.c /home/wbic16/phcc-gate-run/src/coreutils/src/ln.c /home/wbic16/phcc-gate-run/src/coreutils/src/logname.c /home/wbic16/phcc-gate-run/src/coreutils/src/ls.c /home/wbic16/phcc-gate-run/src/coreutils/src/ls-dir.c /home/wbic16/phcc-gate-run/src/coreutils/src/ls-ls.c /home/wbic16/phcc-gate-run/src/coreutils/src/ls-vdir.c /home/wbic16/phcc-gate-run/src/coreutils/src/make-prime-list.c /home/wbic16/phcc-gate-run/src/coreutils/src/mkdir.c /home/wbic16/phcc-gate-run/src/coreutils/src/mkfifo.c /home/wbic16/phcc-gate-run/src/coreutils/src/mknod.c /home/wbic16/phcc-gate-run/src/coreutils/src/mktemp.c /home/wbic16/phcc-gate-run/src/coreutils/src/mv.c /home/wbic16/phcc-gate-run/src/coreutils/src/nice.c /home/wbic16/phcc-gate-run/src/coreutils/src/nl.c /home/wbic16/phcc-gate-run/src/coreutils/src/nohup.c /home/wbic16/phcc-gate-run/src/coreutils/src/nproc.c /home/wbic16/phcc-gate-run/src/coreutils/src/numfmt.c /home/wbic16/phcc-gate-run/src/coreutils/src/od.c /home/wbic16/phcc-gate-run/src/coreutils/src/operand2sig.c /home/wbic16/phcc-gate-run/src/coreutils/src/paste.c /home/wbic16/phcc-gate-run/src/coreutils/src/pathchk.c /home/wbic16/phcc-gate-run/src/coreutils/src/pinky.c /home/wbic16/phcc-gate-run/src/coreutils/src/pr.c /home/wbic16/phcc-gate-run/src/coreutils/src/printenv.c /home/wbic16/phcc-gate-run/src/coreutils/src/printf.c /home/wbic16/phcc-gate-run/src/coreutils/src/prog-fprintf.c /home/wbic16/phcc-gate-run/src/coreutils/src/ptx.c /home/wbic16/phcc-gate-run/src/coreutils/src/pwd.c /home/wbic16/phcc-gate-run/src/coreutils/src/readlink.c /home/wbic16/phcc-gate-run/src/coreutils/src/realpath.c /home/wbic16/phcc-gate-run/src/coreutils/src/relpath.c /home/wbic16/phcc-gate-run/src/coreutils/src/remove.c /home/wbic16/phcc-gate-run/src/coreutils/src/rm.c /home/wbic16/phcc-gate-run/src/coreutils/src/rmdir.c /home/wbic16/phcc-gate-run/src/coreutils/src/runcon.c /home/wbic16/phcc-gate-run/src/coreutils/src/selinux.c /home/wbic16/phcc-gate-run/src/coreutils/src/seq.c /home/wbic16/phcc-gate-run/src/coreutils/src/set-fields.c /home/wbic16/phcc-gate-run/src/coreutils/src/show-date.c /home/wbic16/phcc-gate-run/src/coreutils/src/shred.c /home/wbic16/phcc-gate-run/src/coreutils/src/shuf.c /home/wbic16/phcc-gate-run/src/coreutils/src/sleep.c /home/wbic16/phcc-gate-run/src/coreutils/src/sort.c /home/wbic16/phcc-gate-run/src/coreutils/src/split.c /home/wbic16/phcc-gate-run/src/coreutils/src/stat.c /home/wbic16/phcc-gate-run/src/coreutils/src/stdbuf.c /home/wbic16/phcc-gate-run/src/coreutils/src/stty.c /home/wbic16/phcc-gate-run/src/coreutils/src/sum.c /home/wbic16/phcc-gate-run/src/coreutils/src/sync.c /home/wbic16/phcc-gate-run/src/coreutils/src/tac.c /home/wbic16/phcc-gate-run/src/coreutils/src/tac-pipe.c /home/wbic16/phcc-gate-run/src/coreutils/src/tail.c /home/wbic16/phcc-gate-run/src/coreutils/src/tee.c /home/wbic16/phcc-gate-run/src/coreutils/src/temp-stream.c /home/wbic16/phcc-gate-run/src/coreutils/src/termios.c /home/wbic16/phcc-gate-run/src/coreutils/src/test.c /home/wbic16/phcc-gate-run/src/coreutils/src/test-lbracket.c /home/wbic16/phcc-gate-run/src/coreutils/src/test-test.c /home/wbic16/phcc-gate-run/src/coreutils/src/timeout.c /home/wbic16/phcc-gate-run/src/coreutils/src/touch.c /home/wbic16/phcc-gate-run/src/coreutils/src/tr.c /home/wbic16/phcc-gate-run/src/coreutils/src/true.c /home/wbic16/phcc-gate-run/src/coreutils/src/true-false.c /home/wbic16/phcc-gate-run/src/coreutils/src/true-true.c /home/wbic16/phcc-gate-run/src/coreutils/src/truncate.c /home/wbic16/phcc-gate-run/src/coreutils/src/tsort.c /home/wbic16/phcc-gate-run/src/coreutils/src/tty.c /home/wbic16/phcc-gate-run/src/coreutils/src/uname-arch.c /home/wbic16/phcc-gate-run/src/coreutils/src/uname.c /home/wbic16/phcc-gate-run/src/coreutils/src/uname-uname.c /home/wbic16/phcc-gate-run/src/coreutils/src/unexpand.c /home/wbic16/phcc-gate-run/src/coreutils/src/uniq.c /home/wbic16/phcc-gate-run/src/coreutils/src/unlink.c /home/wbic16/phcc-gate-run/src/coreutils/src/uptime.c /home/wbic16/phcc-gate-run/src/coreutils/src/users.c /home/wbic16/phcc-gate-run/src/coreutils/src/version.c /home/wbic16/phcc-gate-run/src/coreutils/src/wc_avx2.c /home/wbic16/phcc-gate-run/src/coreutils/src/wc_avx512.c /home/wbic16/phcc-gate-run/src/coreutils/src/wc.c /home/wbic16/phcc-gate-run/src/coreutils/src/wc_neon.c /home/wbic16/phcc-gate-run/src/coreutils/src/whoami.c /home/wbic16/phcc-gate-run/src/coreutils/src/who.c /home/wbic16/phcc-gate-run/src/coreutils/src/yes.c
++ wc -l /home/wbic16/phccbox-work/out/coreutils-programs.txt
+149 /home/wbic16/phccbox-work/out/coreutils-programs.txt
++ sensors
++ grep -i tctl
+Tctl:         +71.6°C  
++ echo PHASE1-DONE
+PHASE1-DONE
